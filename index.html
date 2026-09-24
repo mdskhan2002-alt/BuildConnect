@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BuildConnect — Real Estate & Construction Marketplace</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="#home"><span>BC</span> BuildConnect</a>
+  <nav><a href="#marketplace">Marketplace</a><a href="#how">How It Works</a><a href="#roles">For Businesses</a></nav>
+  <div class="nav-actions"><button class="btn ghost" onclick="openModal('login')">Login</button><button class="btn primary" onclick="openModal('signup')">Join BuildConnect</button></div>
+</header>
+
+<main id="home">
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">REAL ESTATE • CONSTRUCTION • SERVICES</div>
+    <h1>One platform for the <span>complete</span> real estate ecosystem.</h1>
+    <p>Connect landowners, developers, brokers, engineers, constructors, material suppliers and buyers in one digital marketplace.</p>
+    <div class="hero-actions"><button class="btn primary big" onclick="scrollToSection('marketplace')">Explore Marketplace →</button><button class="btn light big" onclick="openModal('requirement')">Post a Requirement</button></div>
+    <div class="trust"><div><b>7+</b><small>Stakeholder types</small></div><div><b>1</b><small>Connected ecosystem</small></div><div><b>24/7</b><small>Digital discovery</small></div></div>
+  </div>
+  <div class="hero-card">
+    <div class="card-top"><span>BuildConnect Marketplace</span><span class="live">● LIVE</span></div>
+    <div class="search-box">⌕ <input id="heroSearch" placeholder="Search property, engineer, materials..." oninput="filterCards()"></div>
+    <div class="mini-grid">
+      <div>🏠<b>Properties</b><small>Land & projects</small></div>
+      <div>👷<b>Professionals</b><small>Engineers & brokers</small></div>
+      <div>🏗️<b>Construction</b><small>Builders & services</small></div>
+      <div>🧱<b>Materials</b><small>Suppliers & products</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="marketplace">
+  <div class="section-head"><div><div class="eyebrow">MARKETPLACE</div><h2>Discover what you need.</h2></div><button class="btn light" onclick="openModal('requirement')">+ Post Requirement</button></div>
+  <div class="filters">
+    <button class="filter active" data-filter="all" onclick="setFilter('all',this)">All</button>
+    <button class="filter" data-filter="property" onclick="setFilter('property',this)">🏠 Property</button>
+    <button class="filter" data-filter="professional" onclick="setFilter('professional',this)">👷 Professionals</button>
+    <button class="filter" data-filter="construction" onclick="setFilter('construction',this)">🏗️ Construction</button>
+    <button class="filter" data-filter="material" onclick="setFilter('material',this)">🧱 Materials</button>
+  </div>
+  <div class="cards" id="cards">
+    <article class="listing" data-type="property" data-search="land greater noida residential property"><div class="visual property">🏠</div><div class="listing-body"><span class="tag">PROPERTY</span><h3>Residential Land Opportunity</h3><p>5,000 sq ft • Greater Noida</p><div class="price">₹1.25 Cr</div><button class="text-btn" onclick="openModal('contact')">View & Connect →</button></div></article>
+    <article class="listing" data-type="professional" data-search="civil engineer structural consultant greater noida"><div class="visual professional">👷</div><div class="listing-body"><span class="tag">PROFESSIONAL</span><h3>Rahul Sharma — Civil Engineer</h3><p>Structural planning • Site inspection</p><div class="rating">★ 4.9 <small>Verified profile</small></div><button class="text-btn" onclick="openModal('contact')">View & Connect →</button></div></article>
+    <article class="listing" data-type="construction" data-search="construction contractor residential execution"><div class="visual construction">🏗️</div><div class="listing-body"><span class="tag">CONSTRUCTION</span><h3>Residential Construction Services</h3><p>Turnkey construction • Local projects</p><div class="price">Request Quote</div><button class="text-btn" onclick="openModal('contact')">Request Quote →</button></div></article>
+    <article class="listing" data-type="material" data-search="cement steel bricks building materials supplier"><div class="visual material">🧱</div><div class="listing-body"><span class="tag">MATERIALS</span><h3>ABC Building Materials</h3><p>Cement • Steel • Bricks • Sand</p><div class="rating">● Available <small>Local delivery</small></div><button class="text-btn" onclick="openModal('contact')">Send Enquiry →</button></div></article>
+  </div>
+</section>
+
+<section class="section light-section" id="how">
+  <div class="center"><div class="eyebrow">HOW BUILDCONNECT WORKS</div><h2>From requirement to connection.</h2><p class="lead">A simple workflow that helps the right people find each other.</p></div>
+  <div class="steps"><div class="step"><span>01</span><h3>Create a profile</h3><p>Join as a landowner, developer, broker, engineer, constructor, supplier or buyer.</p></div><div class="step"><span>02</span><h3>Search or post</h3><p>Discover opportunities or post a property, project, service or material requirement.</p></div><div class="step"><span>03</span><h3>Connect</h3><p>Contact relevant stakeholders, discuss requirements and move toward a transaction.</p></div></div>
+</section>
+
+<section class="section" id="roles">
+ <div class="section-head"><div><div class="eyebrow">BUILDCONNECT NETWORK</div><h2>Everyone has a place here.</h2></div></div>
+ <div class="role-grid">
+  <div class="role">🏠<b>Landowners</b><span>List land & opportunities</span></div><div class="role">🏢<b>Developers</b><span>Find projects & services</span></div><div class="role">🤝<b>Brokers</b><span>Connect buyers & sellers</span></div><div class="role">👷<b>Engineers</b><span>Showcase expertise</span></div><div class="role">🏗️<b>Constructors</b><span>Find construction projects</span></div><div class="role">🧱<b>Suppliers</b><span>List materials & receive enquiries</span></div><div class="role">🔑<b>Buyers</b><span>Discover property & projects</span></div>
+ </div>
+</section>
+
+<section class="cta"><div><div class="eyebrow">BUILD THE CONNECTION</div><h2>Have a property, project or requirement?</h2><p>Put it in front of the right stakeholders.</p></div><button class="btn dark big" onclick="openModal('requirement')">Post a Requirement →</button></section>
+</main>
+
+<footer><div class="brand"><span>BC</span> BuildConnect</div><p>Connecting the real estate & construction ecosystem.</p><div>© Copy Right 2026 BuildConnect Infotech software</div></footer>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">x</button><div id="modalContent"></div></div></div>
+<script src="app.js"></script>
+</body></html>

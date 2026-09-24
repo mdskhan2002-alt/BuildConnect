@@ -1,0 +1,16 @@
+let activeFilter = 'all';
+function scrollToSection(id) { document.getElementById(id).scrollIntoView({ behavior: 'smooth' }) }
+function setFilter(type, el) { activeFilter = type; document.querySelectorAll('.filter').forEach(x => x.classList.remove('active')); el.classList.add('active'); filterCards() }
+function filterCards() { const q = (document.getElementById('heroSearch')?.value || '').toLowerCase(); document.querySelectorAll('.listing').forEach(card => { const okType = activeFilter === 'all' || card.dataset.type === activeFilter; const okSearch = !q || card.dataset.search.includes(q); card.style.display = okType && okSearch ? 'block' : 'none' }) }
+function openModal(type) {
+    const c = document.getElementById('modalContent');
+    if (type === 'login') c.innerHTML = `<h2>Welcome back</h2><p>Login to your BuildConnect account.</p>${form('Email', 'email')} ${form('Password', 'password')}<button class="btn primary" onclick="success('Logged in demo mode')">Login</button>`;
+    if (type === 'signup') c.innerHTML = `<h2>Join BuildConnect</h2><p>Create your marketplace profile.</p><div class="form"><input placeholder="Full name"><input placeholder="Email"><input placeholder="Phone"><select><option>Select stakeholder role</option><option>Landowner</option><option>Developer</option><option>Broker</option><option>Engineer</option><option>Constructor</option><option>Material Supplier</option><option>Buyer</option></select><button class="btn primary" onclick="success('Profile created in demo mode')">Create Account</button></div>`;
+    if (type === 'requirement') c.innerHTML = `<h2>Post a Requirement</h2><p>Tell the network what you need.</p><div class="form"><input placeholder="Requirement title"><select><option>Property</option><option>Professional</option><option>Construction</option><option>Machinery</option><option>Materials</option></select><input placeholder="Location"><input placeholder="Budget / quantity"><textarea placeholder="Describe your requirement"></textarea><button class="btn primary" onclick="success('Requirement submitted in demo mode')">Post Requirement</button></div>`;
+    if (type === 'contact') c.innerHTML = `<h2>Connect with this listing</h2><p>Send your requirement and contact details.</p><div class="form"><input placeholder="Your name"><input placeholder="Phone / WhatsApp"><textarea placeholder="What would you like to discuss?"></textarea><button class="btn primary" onclick="success('Enquiry sent in demo mode')">Send Enquiry</button></div>`;
+    document.getElementById('modal').classList.add('show');
+}
+function form(label, type) { return `<div class="form"><input type="${type}" placeholder="${label}"></div>` }
+function success(msg) { document.getElementById('modalContent').innerHTML = `<div style="text-align:center;padding:25px"><div style="font-size:45px">✓</div><h2>${msg}</h2><p>This starter website is ready to connect to a real backend, database and authentication system.</p><button class="btn primary" onclick="closeModal()">Close</button></div>` }
+function closeModal() { document.getElementById('modal').classList.remove('show') }
+document.getElementById('modal').addEventListener('click', e => { if (e.target.id === 'modal') closeModal() });
